@@ -1,0 +1,18 @@
+<div *ngIf="track">
+  <h1>{{ track.name }}</h1>
+
+  <p>
+    <img src="{{ track.album.images[1].url }}">
+  </p>
+
+  <p>
+    <audio controls src="{{ track.preview_url }}">Your browser does not support the audio element.</audio>
+  </p>
+  <p>
+    <iframe [src]="pbUrl"
+            width="100%" height="152" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </p>
+
+  <p><a href (click)="back()">Back</a></p>
+</div>
