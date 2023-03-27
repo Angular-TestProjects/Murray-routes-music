@@ -42,7 +42,6 @@ export class TrackComponent implements OnInit {
     debugger;
     this.track = res;
 
-    const url = `https://open.spotify.com/embed/track/${res.id}?utm_source=generator`;
-    this.pbUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    this.pbUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.spotify.getEmbTrack(res.id));
   }
 }

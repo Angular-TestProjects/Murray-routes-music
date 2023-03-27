@@ -14,6 +14,7 @@ export class SpotifyService {
   static BASE_URL = "https://api.spotify.com/v1";
   static AUTH_URL = "https://accounts.spotify.com/authorize";
   static TOKEN_URL = "https://accounts.spotify.com/api/token";
+  static EMBED_URL = "https://open.spotify.com/embed";
 
   constructor(private http: HttpClient) {}
 
@@ -136,6 +137,14 @@ export class SpotifyService {
 
   getAlbum(id: string): Observable<any> {
     return this.query(`/albums/${id}`);
+  }
+
+  getEmbUrl(URL: string): string{
+    return `${SpotifyService.EMBED_URL}${URL}?utm_source=generator`;
+  }
+
+  getEmbTrack(id: string): string{
+    return this.getEmbUrl(`/track/${id}`);
   }
 }
 
